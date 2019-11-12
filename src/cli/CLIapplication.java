@@ -16,6 +16,7 @@ public class CLIapplication {
 	private final String finalString = "final value";
 	private int varInt2;
 	private String string1, string2;
+	private int stringInt;
 	
 	/**
 	 * This is the entry point of the program
@@ -77,6 +78,18 @@ public class CLIapplication {
 		System.out.println("String1: "+ string1+ ", String2: "+string2);
 		System.out.println("Second test: " + isSubstringThere(string1, string2));
 		
+		//remove character method
+		System.out.println("Testing remove character method");
+		string1 = "This is the full string";
+		stringInt = 15;
+		System.out.println("String: "+string1+ ", int: "+stringInt);
+		System.out.println("First test: " + removeCharFromString(string1, stringInt));
+		stringInt = 20;
+		System.out.println("String: "+string1+ ", int: "+stringInt);
+		System.out.println("Second test: " + removeCharFromString(string1, stringInt));
+		
+		
+		
 	}
 
 	public boolean isEqualString(String string1, String string2) {
@@ -88,6 +101,16 @@ public class CLIapplication {
 	public boolean isSubstringThere(String string, String subString) {
 		boolean output;
 		output = (string.lastIndexOf(subString) >= 0);
+		return output;
+	}
+	
+	public String removeCharFromString(String string, int i) {
+		String output;
+		String[] splicedStrings = new String[2];
+		splicedStrings[0] = string.substring(0, i-1);
+		splicedStrings[1] = string.substring(i, string.length());
+		output = splicedStrings[0] + splicedStrings[1];
+
 		return output;
 	}
 
