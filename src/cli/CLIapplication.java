@@ -9,7 +9,7 @@ public class CLIapplication {
 	
 	//Class variables
 	private static String varString;
-	
+	private static int varInt;
 	
 	/**
 	 * This is the entry point of the program
@@ -26,5 +26,7 @@ public class CLIapplication {
 		}
 		varString = "initial value";
 		System.out.println();
+		varInt = 10;
+		System.out.println(varInt);
 	}
 }
