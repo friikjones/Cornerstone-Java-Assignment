@@ -19,6 +19,11 @@ public class CLIapplication {
 	 * @param arg0
 	 */
 	public static void main(String[] arg0) {
+		method1a(arg0);
+		
+	}
+	
+	public static void method1a(String[] arg0) {
 		if(arg0.length > 0) {
 			System.out.println(arg0.length);
 			for (int i = 0; i < arg0.length; i++) {
@@ -42,7 +47,11 @@ public class CLIapplication {
 		
 		varInt2 = 5;
 		varInt += varInt2;
-		System.out.println(varInt);
-		
+		System.out.println(varInt);	
 	}
+
+	
+
+
+
 }
