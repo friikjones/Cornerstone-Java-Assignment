@@ -10,6 +10,7 @@ public class CLIapplication {
 	//Class variables
 	private static String varString;
 	private static int varInt;
+	private static String varString2;
 	
 	/**
 	 * This is the entry point of the program
@@ -32,6 +33,8 @@ public class CLIapplication {
 		varString = "overwrited value";
 		System.out.println(varString);
 		
+		varString2 = varString;
+		System.out.println(varString2);
 		
 	}
 }
