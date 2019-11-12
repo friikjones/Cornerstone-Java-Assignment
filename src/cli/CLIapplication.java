@@ -25,8 +25,13 @@ public class CLIapplication {
 			System.out.println("No arguments");
 		}
 		varString = "initial value";
-		System.out.println();
+		System.out.println(varString);
 		varInt = 10;
 		System.out.println(varInt);
+		
+		varString = "overwrited value";
+		System.out.println(varString);
+		
+		
 	}
 }
