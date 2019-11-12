@@ -103,6 +103,16 @@ public class CLIapplication {
 		System.out.println("Base: "+string1+" , target: "+string2+", replacement: "+string3);
 		System.out.println("Second test: "+ replaceStringInside(string1, string2, string3));
 		
+		//reverse string method
+		System.out.println("--------------------------------");
+		System.out.println("Testing reverse string method");
+		string1 = "This is the base string";
+		System.out.println("Base: "+ string1);
+		System.out.println("First test: "+reverseString(string1));
+		string1 = "This is the second base string";
+		System.out.println("Base: "+ string1);
+		System.out.println("Second test: "+reverseString(string1));
+				
 	}
 
 	public boolean isEqualString(String string1, String string2) {
@@ -130,6 +140,15 @@ public class CLIapplication {
 	public String replaceStringInside(String input, String target, String replacement) {
 		String output;
 		output = input.replace(target, replacement);
+		return output;
+	}
+	
+	public String reverseString(String input) {
+		String output;
+		output = "";
+		for (int i = 1; i <= input.length(); i++) {
+			output += input.charAt(input.length()-i);
+		}
 		return output;
 	}
 
