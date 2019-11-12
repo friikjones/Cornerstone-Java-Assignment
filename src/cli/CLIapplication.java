@@ -112,6 +112,19 @@ public class CLIapplication {
 		string1 = "This is the second base string";
 		System.out.println("Base: "+ string1);
 		System.out.println("Second test: "+reverseString(string1));
+		
+		//search for word method
+		System.out.println("--------------------------------");
+		System.out.println("Testing search for word method");
+		string1 = "This is the base string";
+		string2 = "base";
+		System.out.println("Base: "+ string1+", input: "+string2);
+		System.out.println("First test: "+searchForWord(string1,string2));
+		string2 = "string";
+		System.out.println("Base: "+ string1+", input: "+string2);
+		System.out.println("Second test: "+searchForWord(string1,string2));
+		
+		
 				
 	}
 
@@ -149,6 +162,12 @@ public class CLIapplication {
 		for (int i = 1; i <= input.length(); i++) {
 			output += input.charAt(input.length()-i);
 		}
+		return output;
+	}
+	
+	public int searchForWord(String input, String target) {
+		int output;
+		output = input.indexOf(target);
 		return output;
 	}
 
