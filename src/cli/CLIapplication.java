@@ -11,6 +11,7 @@ public class CLIapplication {
 	private static String varString;
 	private static int varInt;
 	private static String varString2;
+	private static final String finalString = "final value";
 	
 	/**
 	 * This is the entry point of the program
@@ -35,6 +36,8 @@ public class CLIapplication {
 		
 		varString2 = varString;
 		System.out.println(varString2);
+		
+		System.out.println(finalString);
 		
 	}
 }
