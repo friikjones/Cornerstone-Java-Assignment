@@ -1,6 +1,5 @@
 package cli;
 
-import jdk.nashorn.internal.objects.NativeInt16Array;
 
 /**
  * 
@@ -16,6 +15,7 @@ public class CLIapplication {
 	private String varString2;
 	private final String finalString = "final value";
 	private int varInt2;
+	private String string1, string2;
 	
 	/**
 	 * This is the entry point of the program
@@ -23,7 +23,10 @@ public class CLIapplication {
 	 */
 	public static void main(String[] arg0) {
 		CLIapplication app = new CLIapplication();
+		System.out.println("================ Methods from 1a ====================");
 		app.method1a(arg0);
+		System.out.println("================ Methods from 1b ====================");
+		app.method1b(arg0);
 		
 	}
 	
@@ -57,7 +60,6 @@ public class CLIapplication {
 	public void method1b(String[] arg0) {
 		//Compare method
 		System.out.println("Testing method compare");
-		String string1, string2;
 		string1 = string2 = "True";
 		System.out.println("String1: "+ string1+ ", String2: "+string2);
 		System.out.println("First test: " + isEqualString(string1, string2));
@@ -65,11 +67,27 @@ public class CLIapplication {
 		System.out.println("String1: "+ string1+ ", String2: "+string2);
 		System.out.println("Second test: " + isEqualString(string1, string2));
 		
+		//substring method
+		System.out.println("Testing substring method");
+		string1 = "This is the full string";
+		string2 = "full string";
+		System.out.println("String1: "+ string1+ ", String2: "+string2);
+		System.out.println("First test: " + isSubstringThere(string1, string2));
+		string2 = "substring";
+		System.out.println("String1: "+ string1+ ", String2: "+string2);
+		System.out.println("Second test: " + isSubstringThere(string1, string2));
+		
 	}
 
 	public boolean isEqualString(String string1, String string2) {
 		boolean output;
 		output = (string1.equals(string2));
+		return output;
+	}
+	
+	public boolean isSubstringThere(String string, String subString) {
+		boolean output;
+		output = (string.lastIndexOf(subString) >= 0);
 		return output;
 	}
 
