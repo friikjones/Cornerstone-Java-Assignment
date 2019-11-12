@@ -15,7 +15,7 @@ public class CLIapplication {
 	private String varString2;
 	private final String finalString = "final value";
 	private int varInt2;
-	private String string1, string2;
+	private String string1, string2, string3;
 	private int stringInt;
 	
 	/**
@@ -69,6 +69,7 @@ public class CLIapplication {
 		System.out.println("Second test: " + isEqualString(string1, string2));
 		
 		//substring method
+		System.out.println("--------------------------------");
 		System.out.println("Testing substring method");
 		string1 = "This is the full string";
 		string2 = "full string";
@@ -79,6 +80,7 @@ public class CLIapplication {
 		System.out.println("Second test: " + isSubstringThere(string1, string2));
 		
 		//remove character method
+		System.out.println("--------------------------------");
 		System.out.println("Testing remove character method");
 		string1 = "This is the full string";
 		stringInt = 15;
@@ -88,7 +90,18 @@ public class CLIapplication {
 		System.out.println("String: "+string1+ ", int: "+stringInt);
 		System.out.println("Second test: " + removeCharFromString(string1, stringInt));
 		
-		
+		//replace string method
+		System.out.println("--------------------------------");
+		System.out.println("Testing replace string method");
+		string1 = "This is the base string";
+		string2 = "base";
+		string3 = "replaced";
+		System.out.println("Base: "+string1+" , target: "+string2+", replacement: "+string3);
+		System.out.println("First test: "+ replaceStringInside(string1, string2, string3));
+		string2 = " is";
+		string3 = " was";
+		System.out.println("Base: "+string1+" , target: "+string2+", replacement: "+string3);
+		System.out.println("Second test: "+ replaceStringInside(string1, string2, string3));
 		
 	}
 
@@ -113,7 +126,12 @@ public class CLIapplication {
 
 		return output;
 	}
-
+	
+	public String replaceStringInside(String input, String target, String replacement) {
+		String output;
+		output = input.replace(target, replacement);
+		return output;
+	}
 
 
 }
