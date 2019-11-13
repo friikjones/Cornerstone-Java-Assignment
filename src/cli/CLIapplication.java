@@ -8,7 +8,7 @@ package cli;
  * 
  */
 public class CLIapplication {
-	
+
 	//Class variables
 	private String varString;
 	private int varInt;
@@ -18,7 +18,7 @@ public class CLIapplication {
 	private String string1, string2, string3;
 	private int stringInt;
 	private String[] stringArray;
-	
+
 	/**
 	 * This is the entry point of the program
 	 * @param arg0
@@ -29,9 +29,9 @@ public class CLIapplication {
 		app.method1a(arg0);
 		System.out.println("================ Methods from 1b ====================");
 		app.method1b(arg0);
-		
+
 	}
-	
+
 	public void method1a(String[] arg0) {
 		if(arg0.length > 0) {
 			System.out.println(arg0.length);
@@ -45,20 +45,20 @@ public class CLIapplication {
 		System.out.println(varString);
 		varInt = 10;
 		System.out.println(varInt);
-		
+
 		varString = "overwrited value";
 		System.out.println(varString);
-		
+
 		varString2 = varString;
 		System.out.println(varString2);
-		
+
 		System.out.println(finalString);
-		
+
 		varInt2 = 5;
 		varInt += varInt2;
 		System.out.println(varInt);	
 	}
-	
+
 	public void method1b(String[] arg0) {
 		//Compare method
 		System.out.println("Testing method compare");
@@ -68,7 +68,7 @@ public class CLIapplication {
 		string1 = "False";
 		System.out.println("String1: "+ string1+ ", String2: "+string2);
 		System.out.println("Second test: " + isEqualString(string1, string2));
-		
+
 		//substring method
 		System.out.println("--------------------------------");
 		System.out.println("Testing substring method");
@@ -79,7 +79,7 @@ public class CLIapplication {
 		string2 = "substring";
 		System.out.println("String1: "+ string1+ ", String2: "+string2);
 		System.out.println("Second test: " + isSubstringThere(string1, string2));
-		
+
 		//remove character method
 		System.out.println("--------------------------------");
 		System.out.println("Testing remove character method");
@@ -90,7 +90,7 @@ public class CLIapplication {
 		stringInt = 20;
 		System.out.println("String: "+string1+ ", int: "+stringInt);
 		System.out.println("Second test: " + removeCharFromString(string1, stringInt));
-		
+
 		//replace string method
 		System.out.println("--------------------------------");
 		System.out.println("Testing replace string method");
@@ -103,7 +103,7 @@ public class CLIapplication {
 		string3 = " was";
 		System.out.println("Base: "+string1+" , target: "+string2+", replacement: "+string3);
 		System.out.println("Second test: "+ replaceStringInside(string1, string2, string3));
-		
+
 		//reverse string method
 		System.out.println("--------------------------------");
 		System.out.println("Testing reverse string method");
@@ -113,7 +113,7 @@ public class CLIapplication {
 		string1 = "This is the second base string";
 		System.out.println("Base: "+ string1);
 		System.out.println("Second test: "+reverseString(string1));
-		
+
 		//search for word method
 		System.out.println("--------------------------------");
 		System.out.println("Testing search for word method");
@@ -124,7 +124,7 @@ public class CLIapplication {
 		string2 = "string";
 		System.out.println("Base: "+ string1+", input: "+string2);
 		System.out.println("Second test: "+searchForWord(string1,string2));
-		
+
 		//split string method
 		System.out.println("--------------------------------");
 		System.out.println("Testing split string method");
@@ -148,9 +148,29 @@ public class CLIapplication {
 			System.out.print(string+ "/");
 		}
 		System.out.println();
-		
-		
-		
+
+		//uppercase method
+		System.out.println("--------------------------------");
+		System.out.println("Testing uppercase method");
+		string1 = "This is the base string";
+		System.out.println("Base: "+string1);
+		System.out.println("First test: "+ toUpperCase(string1));
+		string1 = "This is the base string fo the second test";
+		System.out.println("Base: "+string1);
+		System.out.println("Second test: "+ toUpperCase(string1));
+
+		//lowercase method
+		System.out.println("--------------------------------");
+		System.out.println("Testing lowercase method");
+		string1 = "This is the base string";
+		System.out.println("Base: "+string1);
+		System.out.println("First test: "+ toLowerCase(string1));
+		string1 = "This is the base string fo the second test";
+		System.out.println("Base: "+string1);
+		System.out.println("Second test: "+ toLowerCase(string1));
+
+
+
 	}
 
 	public boolean isEqualString(String string1, String string2) {
@@ -158,13 +178,13 @@ public class CLIapplication {
 		output = (string1.equals(string2));
 		return output;
 	}
-	
+
 	public boolean isSubstringThere(String string, String subString) {
 		boolean output;
 		output = (string.lastIndexOf(subString) >= 0);
 		return output;
 	}
-	
+
 	public String removeCharFromString(String string, int i) {
 		String output;
 		String[] splicedStrings = new String[2];
@@ -174,13 +194,13 @@ public class CLIapplication {
 
 		return output;
 	}
-	
+
 	public String replaceStringInside(String input, String target, String replacement) {
 		String output;
 		output = input.replace(target, replacement);
 		return output;
 	}
-	
+
 	public String reverseString(String input) {
 		String output;
 		output = "";
@@ -189,7 +209,7 @@ public class CLIapplication {
 		}
 		return output;
 	}
-	
+
 	public int searchForWord(String input, String target) {
 		int output;
 		output = input.indexOf(target);
@@ -208,7 +228,14 @@ public class CLIapplication {
 		}
 		outputStrings[amount-1] = auxString.substring(step*(amount-1));
 		return outputStrings;
-		
+	}
+
+	public String toUpperCase(String input) {
+		return input.toUpperCase();
+	}
+
+	public String toLowerCase(String input) {
+		return input.toLowerCase();
 	}
 
 }
