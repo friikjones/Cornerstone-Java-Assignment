@@ -235,6 +235,16 @@ public class CLIapplication {
 		System.out.println("Base: '"+string1+"', complement: '"+ string2+"'");
 		System.out.println("Second test: "+concatString(string1, string2));
 		
+		//unicode from string method
+		System.out.println("--------------------------------");
+		System.out.println("Testing unicode from string method");
+		string1 = "This is the base string";
+		stringInt = 10;
+		System.out.println("Base: "+string1+", position: "+stringInt);
+		System.out.println("First test: 0x"+unicodeFromString(string1, stringInt));
+		stringInt = 13;
+		System.out.println("Base: "+string1+", position: "+stringInt);
+		System.out.println("Second test: 0x"+unicodeFromString(string1, stringInt));
 		
 	}
 
@@ -357,6 +367,12 @@ public class CLIapplication {
 	public String concatString(String string1, String string2) {
 		String output = string1 + string2;
 		return output;
+	}
+	
+	public String unicodeFromString(String input, int position) {
+		String output = Integer.toHexString(input.codePointBefore(position));
+		return output;
+		
 	}
 
 }
