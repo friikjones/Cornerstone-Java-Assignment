@@ -1,6 +1,12 @@
 package cli;
 
-import jdk.internal.util.xml.impl.Input;
+import java.util.Date;
+import java.util.Locale;
+
+import com.sun.org.apache.bcel.internal.generic.NEW;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 /**
  * 
@@ -19,6 +25,7 @@ public class CLIapplication {
 	private String string1, string2, string3;
 	private int stringInt, stringInt2, stringInt3, stringInt4;
 	private String[] stringArray;
+	private Locale locale;
 
 	/**
 	 * This is the entry point of the program
@@ -188,7 +195,7 @@ public class CLIapplication {
 		System.out.println("--------------------------------");
 		System.out.println("Testing performance method");
 		string1 = "This is the base string";
-		stringInt = 100000000;
+		stringInt = 1000000;
 		System.out.println("Base: "+string1+", iterations: "+ stringInt);
 		System.out.println("First test: "+comparePerformance(string1,stringInt)+" miliseconds");
 		string1 = "This is the second base string and it is longer";
@@ -199,15 +206,23 @@ public class CLIapplication {
 		System.out.println("--------------------------------");
 		System.out.println("Testing performance internal method");
 		string1 = "This is the base string";
-		stringInt = 10000000;
+		stringInt = 100000;
 		System.out.println("Base: "+string1+", iterations: "+ stringInt);
 		System.out.println("First test: "+comparePerformanceInternal(string1,stringInt)+" miliseconds");
 		string1 = "This is the second base string and it is longer";
 		System.out.println("Base: "+string1+", iterations: "+ stringInt);
 		System.out.println("Second test: "+comparePerformanceInternal(string1,stringInt)+" miliseconds");
 
-
-
+		//formatter method
+		System.out.println("--------------------------------");
+		System.out.println("Testing formatter method");
+		locale = locale.US;
+		System.out.println("Locale: "+locale);
+		System.out.println("First test: "+ formatTime(locale));
+		locale = locale.ITALY;
+		System.out.println("Locale: "+locale);
+		System.out.println("Second test: "+ formatTime(locale));
+		
 	}
 
 	public boolean isEqualString(String string1, String string2) {
@@ -318,6 +333,12 @@ public class CLIapplication {
 		endTime = System.currentTimeMillis();
 		long secondDif = endTime - startTime;
 		return secondDif - firstDif;
+	}
+	
+	public String formatTime(Locale local) {
+		DateFormat df = DateFormat.getDateInstance(DateFormat.FULL, local);
+		String output = df.format(new Date());
+		return output;
 	}
 
 }
