@@ -26,6 +26,7 @@ public class CLIapplication {
 	private int stringInt, stringInt2, stringInt3, stringInt4;
 	private String[] stringArray;
 	private Locale locale;
+	private String bufferString;
 
 	/**
 	 * This is the entry point of the program
@@ -246,6 +247,28 @@ public class CLIapplication {
 		System.out.println("Base: "+string1+", position: "+stringInt);
 		System.out.println("Second test: 0x"+unicodeFromString(string1, stringInt));
 		
+		//buffer control methods
+		System.out.println("--------------------------------");
+		System.out.println("Testing buffer control methods");
+		bufferClear();
+		System.out.println("Current buffer: '"+bufferGet()+"'");
+		string1 = "Adding this to buffer";
+		string2 = " and also this";
+		System.out.println("Adding to buffer: '"+string1+"' and '"+string2+"'" );
+		bufferAdd(string1);
+		bufferAdd(string2);
+		System.out.println("Current buffer: '"+bufferGet()+"'");
+		string1 = ", this too";
+		string2 = ", and finally this";
+		System.out.println("Adding to buffer: '"+string1+"' and '"+string2+"'" );
+		bufferAdd(string1);
+		bufferAdd(string2);
+		System.out.println("Current buffer: '"+bufferGet()+"'");
+		System.out.println("Clearing buffer");
+		bufferClear();
+		System.out.println("Current buffer: '"+bufferGet()+"'");
+		
+		
 	}
 
 	public boolean isEqualString(String string1, String string2) {
@@ -371,8 +394,18 @@ public class CLIapplication {
 	
 	public String unicodeFromString(String input, int position) {
 		String output = Integer.toHexString(input.codePointBefore(position));
-		return output;
-		
+		return output;	
+	}
+	
+	public void bufferClear() {
+		bufferString = "";
+	}
+	
+	public void bufferAdd(String input) {
+		bufferString += input;
+	}
+	public String bufferGet() {
+		return bufferString;
 	}
 
 }
