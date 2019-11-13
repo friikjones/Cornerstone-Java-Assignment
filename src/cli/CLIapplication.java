@@ -183,8 +183,30 @@ public class CLIapplication {
 		stringInt2 = stringInt4 = 20;
 		System.out.println("Base: "+string1+" ["+stringInt+"-"+stringInt2+"], Compare: "+string2+" ["+stringInt3+"-"+stringInt4+"]");
 		System.out.println("First test: "+matchStrings(string1, stringInt, stringInt2, string2, stringInt3, stringInt4));
-		
-		
+
+		//performance method
+		System.out.println("--------------------------------");
+		System.out.println("Testing performance method");
+		string1 = "This is the base string";
+		stringInt = 100000000;
+		System.out.println("Base: "+string1+", iterations: "+ stringInt);
+		System.out.println("First test: "+comparePerformance(string1,stringInt)+" miliseconds");
+		string1 = "This is the second base string and it is longer";
+		System.out.println("Base: "+string1+", iterations: "+ stringInt);
+		System.out.println("Second test: "+comparePerformance(string1,stringInt)+" miliseconds");
+
+		//performance internal method
+		System.out.println("--------------------------------");
+		System.out.println("Testing performance internal method");
+		string1 = "This is the base string";
+		stringInt = 10000000;
+		System.out.println("Base: "+string1+", iterations: "+ stringInt);
+		System.out.println("First test: "+comparePerformanceInternal(string1,stringInt)+" miliseconds");
+		string1 = "This is the second base string and it is longer";
+		System.out.println("Base: "+string1+", iterations: "+ stringInt);
+		System.out.println("Second test: "+comparePerformanceInternal(string1,stringInt)+" miliseconds");
+
+
 
 	}
 
@@ -252,13 +274,50 @@ public class CLIapplication {
 	public String toLowerCase(String input) {
 		return input.toLowerCase();
 	}
-	
+
 	public boolean matchStrings(String string1, int start1, int end1 , String string2, int start2, int end2) {
 		boolean output;
 		String aux1 = string1.substring(start1, end1);
 		String aux2 = string2.substring(start2,end2);
 		output = (aux1.equals(aux2));
 		return output;
+	}
+
+	public long comparePerformance(String input, double iterations) {
+		long startTime = System.currentTimeMillis();
+		for(int i = 0; i < iterations; i++) {
+			String s1 = input; 
+		}
+		long endTime = System.currentTimeMillis();
+		long firstDif = endTime-startTime;
+
+		startTime = System.currentTimeMillis();
+		for(int i = 0; i < iterations; i++) {
+			String s2 = new String(input);
+		}
+		endTime = System.currentTimeMillis();
+		long secondDif = endTime - startTime;
+		return secondDif - firstDif;
+	}
+
+	public long comparePerformanceInternal(String input, int iterations) {
+		String variables[] = new String[iterations];
+
+		long startTime = System.currentTimeMillis();
+		for(int i = 0; i < iterations; i++) {
+			variables[i] = input; 
+		}
+		long endTime = System.currentTimeMillis();
+		long firstDif = endTime-startTime;
+
+		startTime = System.currentTimeMillis();
+		for(int i = 0; i < iterations; i++) {
+			variables[i] = input;
+			variables[i] = variables[i].intern(); 
+		}
+		endTime = System.currentTimeMillis();
+		long secondDif = endTime - startTime;
+		return secondDif - firstDif;
 	}
 
 }
