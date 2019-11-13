@@ -222,6 +222,19 @@ public class CLIapplication {
 		locale = locale.ITALY;
 		System.out.println("Locale: "+locale);
 		System.out.println("Second test: "+ formatTime(locale));
+	
+		//concat string method
+		System.out.println("--------------------------------");
+		System.out.println("Testing concat method");
+		string1 = "This is the base string";
+		string2 = " and this is the complement";
+		System.out.println("Base: '"+string1+"', complement: '"+ string2+"'");
+		System.out.println("First test: "+concatString(string1, string2));
+		string1 = "This is the new base string";
+		string2 = " and this is the new complement";
+		System.out.println("Base: '"+string1+"', complement: '"+ string2+"'");
+		System.out.println("Second test: "+concatString(string1, string2));
+		
 		
 	}
 
@@ -338,6 +351,11 @@ public class CLIapplication {
 	public String formatTime(Locale local) {
 		DateFormat df = DateFormat.getDateInstance(DateFormat.FULL, local);
 		String output = df.format(new Date());
+		return output;
+	}
+	
+	public String concatString(String string1, String string2) {
+		String output = string1 + string2;
 		return output;
 	}
 
