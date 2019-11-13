@@ -1,5 +1,6 @@
 package cli;
 
+import jdk.internal.util.xml.impl.Input;
 
 /**
  * 
@@ -16,7 +17,7 @@ public class CLIapplication {
 	private final String finalString = "final value";
 	private int varInt2;
 	private String string1, string2, string3;
-	private int stringInt;
+	private int stringInt, stringInt2, stringInt3, stringInt4;
 	private String[] stringArray;
 
 	/**
@@ -169,7 +170,21 @@ public class CLIapplication {
 		System.out.println("Base: "+string1);
 		System.out.println("Second test: "+ toLowerCase(string1));
 
-
+		//match strings method
+		System.out.println("--------------------------------");
+		System.out.println("Testing match strings method");
+		string1 = "This is the base string";
+		string2 = "This is the differend string";
+		stringInt = stringInt3 = 0;
+		stringInt2 = stringInt4 = 11;
+		System.out.println("Base: "+string1+" ["+stringInt+"-"+stringInt2+"], Compare: "+string2+" ["+stringInt3+"-"+stringInt4+"]");
+		System.out.println("First test: "+matchStrings(string1, stringInt, stringInt2, string2, stringInt3, stringInt4));
+		stringInt = stringInt3 = 12;
+		stringInt2 = stringInt4 = 20;
+		System.out.println("Base: "+string1+" ["+stringInt+"-"+stringInt2+"], Compare: "+string2+" ["+stringInt3+"-"+stringInt4+"]");
+		System.out.println("First test: "+matchStrings(string1, stringInt, stringInt2, string2, stringInt3, stringInt4));
+		
+		
 
 	}
 
@@ -236,6 +251,14 @@ public class CLIapplication {
 
 	public String toLowerCase(String input) {
 		return input.toLowerCase();
+	}
+	
+	public boolean matchStrings(String string1, int start1, int end1 , String string2, int start2, int end2) {
+		boolean output;
+		String aux1 = string1.substring(start1, end1);
+		String aux2 = string2.substring(start2,end2);
+		output = (aux1.equals(aux2));
+		return output;
 	}
 
 }
