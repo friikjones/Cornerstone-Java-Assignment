@@ -17,6 +17,7 @@ public class CLIapplication {
 	private int varInt2;
 	private String string1, string2, string3;
 	private int stringInt;
+	private String[] stringArray;
 	
 	/**
 	 * This is the entry point of the program
@@ -124,8 +125,32 @@ public class CLIapplication {
 		System.out.println("Base: "+ string1+", input: "+string2);
 		System.out.println("Second test: "+searchForWord(string1,string2));
 		
+		//split string method
+		System.out.println("--------------------------------");
+		System.out.println("Testing split string method");
+		string1 = "This is the base string";
+		stringInt = 4;
+		stringArray = new String[stringInt];
+		System.out.println("Base: "+string1+", amount: "+stringInt);
+		stringArray = splitString(string1, stringInt);
+		System.out.print("First test: ");
+		for (String string : stringArray) {
+			System.out.print(string+ "/");
+		}
+		System.out.println();
+		string1 = "This is the second string for testing the method";
+		stringInt = 7;
+		stringArray = new String[stringInt];
+		System.out.println("Base: "+string1+", amount: "+stringInt);
+		stringArray = splitString(string1, stringInt);
+		System.out.print("Second test: ");
+		for (String string : stringArray) {
+			System.out.print(string+ "/");
+		}
+		System.out.println();
 		
-				
+		
+		
 	}
 
 	public boolean isEqualString(String string1, String string2) {
@@ -171,5 +196,19 @@ public class CLIapplication {
 		return output;
 	}
 
+	public String[] splitString(String input, int amount) {
+		String[] outputStrings = new String[amount];
+		String auxString = input;
+		int step = (input.length()/amount);
+		if ((input.length()%amount)!=0) {
+			step++;
+		}
+		for (int i = 0; i < amount-1; i++) {
+			outputStrings[i] = auxString.substring(step*i,step*(i+1));	
+		}
+		outputStrings[amount-1] = auxString.substring(step*(amount-1));
+		return outputStrings;
+		
+	}
 
 }
